@@ -8,13 +8,24 @@
 	<name>jsf-poc Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		<!-- <dependency> <groupId>javax.faces</groupId> <artifactId>jsf-api</artifactId> 
+			<version>2.1</version> </dependency> <dependency> <groupId>javax.faces</groupId> 
+			<artifactId>jsf-impl</artifactId> <version>1.2_15</version> </dependency> 
+			<dependency> <groupId>org.apache.myfaces.core</groupId> <artifactId>myfaces-api</artifactId> 
+			<version>2.1.5</version> </dependency> -->
 
 		<dependency>
-			<groupId>org.apache.myfaces.core</groupId>
-			<artifactId>myfaces-api</artifactId>
-			<version>2.1.5</version>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.6</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+<!-- 
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-impl</artifactId>
@@ -26,7 +37,7 @@
 			<artifactId>tomahawk</artifactId>
 			<version>1.1.11</version>
 		</dependency>
-
+-->		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
