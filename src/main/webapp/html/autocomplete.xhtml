@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
@@ -6,19 +7,19 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:t="http://myfaces.apache.org/tomahawk">
 
-<h:head>
-	<title>Autocomplete</title>
-</h:head>
-<h:body>
-	<ui:include src="navigation.xhtml" />
-	<h:form id="client_form">
-		<h:inputText id="client" value="#{client.client}" required="true"
-			requiredMessage="Enter client name">
-			<f:ajax event="keyup" execute="client" render="client" />
-		</h:inputText>
-		<h:commandButton value="Submit" action="#{client.submit}">
-			<f:ajax execute="@form" render="@form" />
-		</h:commandButton>
-	</h:form>
-</h:body>
+
+<ui:composition template="base.xhtml">
+	<ui:param name="title" value="Autocomplete" />
+	<ui:define name="content">
+		<h:form id="client_form">
+			<h:inputText id="client" value="#{client.client}" required="true"
+				requiredMessage="Enter client name">
+				<f:ajax event="keyup" execute="client" render="client" />
+			</h:inputText>
+			<h:commandButton value="Submit" action="#{client.submit}">
+				<f:ajax execute="@form" render="@form" />
+			</h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>

@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -6,51 +8,51 @@
 	xmlns:t="http://myfaces.apache.org/tomahawk">
 
 
-<h:head>
-	<title>Register</title>
-</h:head>
-<h:body>
-	<ui:include src="navigation.xhtml"/>
-	<h:form id="PoC">
-		<h:panelGrid columns="3">
-			<h:outputLabel for="username">Username</h:outputLabel>
-			<h:inputText id="username" value="#{register.user.username}"
-				required="true" requiredMessage="Please enter username">
-				<f:ajax event="blur" render="usernameMessage" />
-			</h:inputText>
-			<h:message id="usernameMessage" for="username" />
 
-			<h:outputLabel for="password">Password</h:outputLabel>
-			<h:inputSecret id="password" value="#{register.user.password}"
-				required="true" redisplay="true"
-				requiredMessage="Please enter password">
-				<f:ajax event="blur" render="passwordMessage" />
-			</h:inputSecret>
-			<h:message id="passwordMessage" for="password" />
+<ui:composition template="base.xhtml">
+<ui:param name="title" value="Register" />
+	<ui:define name="content">
+		<h:form id="PoC">
+			<h:panelGrid columns="3">
+				<h:outputLabel for="username">Username</h:outputLabel>
+				<h:inputText id="username" value="#{register.user.username}"
+					required="true" requiredMessage="Please enter username">
+					<f:ajax event="blur" render="usernameMessage" />
+				</h:inputText>
+				<h:message id="usernameMessage" for="username" />
 
-			<h:outputLabel for="email">Email</h:outputLabel>
-			<h:inputText id="email" value="#{register.user.email}"
-				required="true" requiredMessage="Please enter email">
-				<f:ajax event="blur" render="emailMessage" />
-			</h:inputText>
-			<h:message id="emailMessage" for="email" />
+				<h:outputLabel for="password">Password</h:outputLabel>
+				<h:inputSecret id="password" value="#{register.user.password}"
+					required="true" redisplay="true"
+					requiredMessage="Please enter password">
+					<f:ajax event="blur" render="passwordMessage" />
+				</h:inputSecret>
+				<h:message id="passwordMessage" for="password" />
 
-			<h:outputLabel for="birthdate">Birthdate (yyyy-MM-dd)</h:outputLabel>
-			<h:inputText id="birthdate" value="#{register.user.birthdate}"
-				requiredMessage="Please enter birth date">
-				<f:convertDateTime pattern="yyyy-MM-dd" />
-				<f:ajax event="blur" render="birthdateMessage" />
-			</h:inputText>
-			<h:message id="birthdateMessage" for="birthdate" />
+				<h:outputLabel for="email">Email</h:outputLabel>
+				<h:inputText id="email" value="#{register.user.email}"
+					required="true" requiredMessage="Please enter email">
+					<f:ajax event="blur" render="emailMessage" />
+				</h:inputText>
+				<h:message id="emailMessage" for="email" />
 
-			<h:panelGroup />
-			<h:commandButton value="Register" action="#{register.submit}">
-				<f:ajax execute="@form" render="@form" />
-			</h:commandButton>
-			<h:messages globalOnly="true" layout="table" />
+				<h:outputLabel for="birthdate">Birthdate (yyyy-MM-dd)</h:outputLabel>
+				<h:inputText id="birthdate" value="#{register.user.birthdate}"
+					requiredMessage="Please enter birth date">
+					<f:convertDateTime pattern="yyyy-MM-dd" />
+					<f:ajax event="blur" render="birthdateMessage" />
+				</h:inputText>
+				<h:message id="birthdateMessage" for="birthdate" />
 
-		</h:panelGrid>
-	</h:form>
-</h:body>
+				<h:panelGroup />
+				<h:commandButton value="Register" action="#{register.submit}">
+					<f:ajax execute="@form" render="@form" />
+				</h:commandButton>
+				<h:messages globalOnly="true" layout="table" />
+
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>
 
