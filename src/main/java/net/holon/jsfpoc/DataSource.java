@@ -9,10 +9,10 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class DataSource {
-	public List<String> getClients(String prefix) {
+	public List<String> getClients() {
 		List<String> result = new ArrayList<String>();
 		for(int i = 0; i < 10; i++)
-			result.add(prefix + i);
+			result.add("client_" + i);
 		
 		return result;
 	}

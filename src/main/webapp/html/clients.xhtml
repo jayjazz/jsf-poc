@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+
+<ui:composition template="base.xhtml">
+
+	<ui:param name="title" value="Clients" />
+
+	<ui:define name="scripts">
+		<h:outputScript library="javascript" name="jquery-1.7.1.min.js" />
+		<h:outputScript library="javascript" name="myscript.js" />
+	</ui:define>
+
+	<ui:define name="content">
+		<div id="clients_div" style="display:none">
+			<h:dataTable id="clients_table" value="#{dataSource.clients}"
+				var="client">
+				<f:facet name="header">
+					<h:outputText value="Clients" />
+				</f:facet>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Client" />
+					</f:facet>
+					<h:outputText value="#{client}"></h:outputText>
+				</h:column>
+			</h:dataTable>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

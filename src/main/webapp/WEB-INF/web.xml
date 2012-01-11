@@ -6,6 +6,28 @@
 
 	<display-name>JSF PoC</display-name>
 
+	<filter>
+		<filter-name>MyFacesExtensionsFilter</filter-name>
+		<filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
+		<init-param>
+			<param-name>maxFileSize</param-name>
+			<param-value>20m</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>MyFacesExtensionsFilter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>MyFacesExtensionsFilter</filter-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</filter-mapping>
+	<context-param>
+		<param-name>org.apache.myfaces.USE_ENCRYPTION</param-name>
+		<param-value>false</param-value>
+	</context-param>
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
@@ -19,16 +41,5 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
-
-	<filter>
-		<filter-name>MyFacesExtensionsFilter</filter-name>
-		<filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
-
-	</filter>
-
-	<filter-mapping>
-		<filter-name>MyFacesExtensionsFilter</filter-name>
-		<servlet-name>Faces Servlet</servlet-name>
-	</filter-mapping>
 
 </web-app>
