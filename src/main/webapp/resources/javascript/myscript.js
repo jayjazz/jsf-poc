@@ -1,3 +1,6 @@
 $(document).ready(function() {
-	$('#clients_div').slideDown();
+	$('.foldable').slideDown();
+	$('.fold_button').click(function() {
+		$('.foldable').slideToggle();
+	});
 });

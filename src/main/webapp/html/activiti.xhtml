@@ -8,33 +8,51 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:t="http://myfaces.apache.org/tomahawk">
 
-
 <ui:composition template="base.xhtml">
-
-	<ui:param name="title" value="Clients" />
-
+	<ui:param name="title" value="Activiti" />
+	
 	<ui:define name="scripts">
 		<h:outputScript library="javascript" name="jquery-1.7.1.min.js" />
 		<h:outputScript library="javascript" name="myscript.js" />
 	</ui:define>
-
+	
 	<ui:define name="content">
+		Created task with id: <h:outputText value="#{activitiUtil.taskId}"/>
+		
 		<div class="foldable" style="display:none">
-			<h:dataTable id="clients_table" value="#{dataSource.clients}"
-				var="client">
+			<h:dataTable id="tasks_table" value="#{activitiUtil.processes}"
+				var="task" border="1" >
 				<f:facet name="header">
-					<h:outputText value="Clients" />
+					<h:outputText value="Tasks" />
 				</f:facet>
 
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Client" />
+						<h:outputText value="id" />
 					</f:facet>
-					<h:outputText value="#{client}"></h:outputText>
+					<h:outputText value="#{task.id}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="ProcessInstanceId" />
+					</f:facet>
+					<h:outputText value="#{task.processInstanceId}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="ProcessDefinitionId" />
+					</f:facet>
+					<h:outputText value="#{task.processDefinitionId}"></h:outputText>
 				</h:column>
 			</h:dataTable>
 		</div>
+		
+		<input class="fold_button" type="button" value="Sliiide"/> 
+		
 	</ui:define>
-
+		
 </ui:composition>
+
 </html>

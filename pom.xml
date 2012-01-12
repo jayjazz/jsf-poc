@@ -8,22 +8,7 @@
 	<name>jsf-poc Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-		<!-- <dependency> <groupId>javax.faces</groupId> <artifactId>jsf-api</artifactId> 
-			<version>2.1</version> </dependency> <dependency> <groupId>javax.faces</groupId> 
-			<artifactId>jsf-impl</artifactId> <version>1.2_15</version> </dependency> -->
-<!-- 
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.1.6</version>
-		</dependency>
 
-		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-impl</artifactId>
-			<version>2.1.6</version>
-		</dependency>
- -->
 		<dependency>
 			<groupId>org.apache.myfaces.core</groupId>
 			<artifactId>myfaces-api</artifactId>
@@ -42,13 +27,32 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>5.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>jsf-poc</finalName>
 	</build>
+	<repositories>
+		<repository>
+			<id>activiti-repo</id>
+			<url>http://maven.alfresco.com/nexus/content/repositories/activiti</url>
+		</repository>
+	</repositories>
 </project>
